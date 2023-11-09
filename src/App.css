@@ -1,0 +1,28 @@
+body {
+    margin: 10px;
+}
+
+.app {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+/* max 600 px */
+@media only screen and (max-width: 800px) {
+    .app {
+        max-width: 800;
+    }
+}
+
+/* max 1200 px */
+@media only screen and (max-width: 1200px) {
+    .app {
+        max-width: 1200;
+    }
+}
