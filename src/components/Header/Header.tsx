@@ -1,36 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { client } from '../../client';
+import { TypeHeaderFields } from '../../contentful';
+import fetchHeader from '../../functions/fetchHeader';
 
 import './Header.scss';
 
-interface IHeader {
-    title: string;
-    description: string;
-    image: {
-        fields: {
-            file: {
-                url: string;
-            };
-        };
-    };
-}
-
 const Header = () => {
-    const [data, setData] = useState<IHeader>();
+    const [data, setData] = useState<TypeHeaderFields>();
 
     const getHeader = useCallback(async () => {
-        try {
-            const response = await client.getEntries({
-                content_type: 'header',
-            });
-
-            console.log(response);
-            const data = response.items[0].fields as IHeader;
-
-            setData(data);
-        } catch (error) {
-            console.log(error);
-        }
+        setData(await fetchHeader());
     }, []);
 
     useEffect(() => {
