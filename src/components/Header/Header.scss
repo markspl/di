@@ -1,6 +1,10 @@
+@import '../../common.scss';
+
 $imageHeight: 300px;
 
 .header {
+    @extend %roundedBox;
+
     height: $imageHeight;
     width: 100%;
     display: flex;
@@ -8,9 +12,7 @@ $imageHeight: 300px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 10px;
     position: relative;
-    overflow: hidden;
 
     background: linear-gradient(#e6646446, #9198e545);
 
