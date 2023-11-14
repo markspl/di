@@ -1,5 +1,6 @@
 import Cards from '../../components/Cards/Cards';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import './Main.css';
 
 function Main() {
@@ -7,6 +8,7 @@ function Main() {
         <main>
             <Header />
             <Cards />
+            <Footer />
         </main>
     );
 }
