@@ -1,0 +1,32 @@
+Käyttöehdot ja tietosuoja
+Datasi ja Bard
+Tässä ilmoituksessa ja tietosuojakäytännössämmeAvautuu uudessa ikkunassa kerrotaan, miten Google käsittelee Bard-dataasi. Tutustuthan ehtoihin huolellisesti. Euroopan talousalueella ja Sveitsissä Bardin tarjoaa Google Ireland Limited. Muussa tapauksessa Bardin tarjoaa Google LLC (joihin viitataan nimellä Google).
+
+Google kerää Bard-keskustelusi, niihin liittyviä tuotteiden käyttötietoja, tietoja sijainnistasi ja palautteesi. Google käyttää tätä dataa tietosuojakäytäntönsäAvautuu uudessa ikkunassa mukaisesti Googlen tuotteiden ja palveluiden sekä koneoppimisteknologioiden (myös Google Cloudin ja muiden Googlen yritystuotteiden) tarjoamiseen, parantamiseen ja kehittämiseen.
+
+Jos olet vähintään 18-vuotias, Google tallentaa oletuksena Bard-toimintasiAvautuu uudessa ikkunassa Google-tililläsi enintään 18 kuukaudeksi. Voit muuttaa keston 3 tai 36 kuukaudeksi osoitteessa myactivity.google.com/product/bardAvautuu uudessa ikkunassa. Bard-toimintaan tallennetaan myös sijaintiisi liittyviä tietoja, mukaan lukien laitteen karkea alue, IP-osoite tai Google-tilisi koti- tai työosoitteet. Lue lisää osoitteesta g.co/privacypolicy/locationAvautuu uudessa ikkunassa.
+
+Voidaksemme kehittää tarjoamamme palvelun ja tuotteidemme laatua (esim. Bardin generatiivisia koneoppimismalleja) tarkastajat lukevat, merkitsevät ja käsittelevät Bard-keskustelujasi. Suojaamme yksityisyyttäsi prosessin aikana. Tähän kuuluu Bard-keskusteluiden ja Google-tilin yhteyksien poistaminen ennen kuin tarkastajat näkevät keskusteluja tai tekevät niihin merkintöjä. Älä lisää Bard-keskusteluihin luottamuksellisia tietoja tai dataa, jota et halua tarkastajan näkevän tai Googlen käyttävän tuotteiden, palveluiden ja koneoppimisteknologioiden kehittämiseen.
+
+Määritä asetukset
+Siirry Google-tilillesiAvautuu uudessa ikkunassa, niin pääset asetuksiin ja työkaluihin, joilla voit suojata dataasi ja yksityisyyttäsi.
+
+Jos haluat käyttää Bardia tallentamatta keskusteluita Google-tilillesi, voit keskeyttää Bard-toimintasi tallentamisenAvautuu uudessa ikkunassa. Voit tarkistaa tai poistaa Bard-keskusteluja Bard-toiminnastasi osoitteessa myactivity.google.com/product/bardAvautuu uudessa ikkunassa. Tarkastajien läpikäymiä tai merkitsemiä Bard-keskusteluja (ja niihin liittyvää dataa, esim. kieli, laitetyyppi, sijaintitiedot tai palaute) ei poisteta, kun poistat Bard-toimintasi, koska niitä säilytetään erillään eikä yhdistetä Google-tiliisi. Sen sijaan niitä säilytetään enintään kolme vuotta.
+
+Vaikka Bard‐toiminta ei ole päällä, keskustelusi tallennetaan tilillesi korkeintaan 72 tunnin ajaksi. Tämän avulla Google voi tarjota palvelun ja käsitellä palautetta. Tämä toiminta ei näy Bard-toiminnassasi. Lue lisääAvautuu uudessa ikkunassa
+
+Jos laitat asetuksen pois päältä tai poistat Bard-toimintaasi, muut asetukset, kuten verkko- ja sovellustoimintaAvautuu uudessa ikkunassa tai sijaintihistoriaAvautuu uudessa ikkunassa, voivat jatkaa sijainnin ja muun datan tallentamista osana muiden Googlen palveluiden käyttöä. Lisäksi kun integroit Bardin muihin Googlen palveluihin ja käytät niitä, ne tallentavat dataasi ja käyttävät sitä palvelujensa tarjoamiseen ja parantamiseen käytäntöjemme ja Googlen tietosuojakäytännönAvautuu uudessa ikkunassa mukaisesti.
+
+Voit pyytääAvautuu uudessa ikkunassa sisällön poistamista käytäntöjemme ja sovellettavien lakien mukaisesti. Voit myös eksportoidaAvautuu uudessa ikkunassa tietosi.
+
+Bard-tuotteiden usein kysytyistä kysymyksistä ja Yksityisyys- ja tietosuojakeskuksestaAvautuu uudessa ikkunassa voit lukea lisää siitä, miten Bard toimii ja miten Google käyttää Bard-dataasi.
+
+Hyvä tietää
+Bard käyttää sijaintiasi ja aiempia keskustelujasi tarjotakseen parhaan mahdollisen vastauksen.
+Bard on kokeellinen teknologia, ja se voi joskus tarjota epätarkkoja tai sopimattomia tietoja, jotka eivät edusta Googlen näkemyksiä.
+Älä luota Bardin vastauksiin lääketieteellisissä, oikeudellisissa, taloudellisissa tai muissa asiantuntijuutta vaativissa kysymyksissä.
+PalautteesiAvautuu uudessa ikkunassa auttaa Bardin kehittämisessä.
+Käyttöehdot
+Hyväksyt, että Bardin käyttöösi sovelletaan Googlen käyttöehtojaAvautuu uudessa ikkunassa ja generatiivisen tekoälyn lisäkäyttöehtojaAvautuu uudessa ikkunassa.
+
+Jos olet Euroopan talousalueella asuva kuluttajaAvautuu uudessa ikkunassa, Euroopan talousalueen kuluttajansuojalainsäädäntö antaa sinulle oikeuden perua nämä ehdot 14 päivän kuluessa niiden hyväksymisestä EU:n perumismallin mukaanAvautuu uudessa ikkunassa.
