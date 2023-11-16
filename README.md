@@ -182,5 +182,66 @@ Please give this a try, and it should produce the intended hover effect.
 -   Animation is working
 -   Image is narrow
 
-![alt](./documents/Screenshot%202023-11-16%20183913.png)
-![alt](./documents/Screenshot%202023-11-16%20183932.png)
+![without hover](./documents/Screenshot%202023-11-16%20183913.png)
+![hover](./documents/Screenshot%202023-11-16%20183932.png)
+
+## Prompt 3
+
+```
+The animation works now and it has correct duration. However, the image's aspect ratio is not correct: image looks more narrow and tall. What might cause this?
+```
+
+## Response 3
+
+````
+If the image's aspect ratio appears incorrect during the hover animation, it's possible that the aspect ratio of the image is not being maintained properly. To ensure the correct aspect ratio, you can set one of the dimensions (either width or height) explicitly and let the other dimension adjust accordingly.
+
+Here's an updated version of the CSS:
+
+```css
+.card {
+  @extend %roundedBox;
+  display: flex;
+  background-size: cover !important;
+  padding: 50px 0 0;
+  width: 400px;
+  min-height: 500px;
+  transition: background-size 0.5s ease-in-out; /* Added transition property */
+
+  &-inner {
+    align-self: flex-end;
+    backdrop-filter: blur(8px);
+    padding: 0 50px;
+  }
+
+  &-title {
+    text-transform: uppercase;
+  }
+
+  &-text,
+  &-title {
+    color: white;
+  }
+
+  &:hover {
+    background-size: 110% 110% !important; /* Increase both width and height on hover */
+  }
+
+  & img {
+    width: 100%; /* Ensure image takes up 100% width of its container */
+    height: auto; /* Allow the height to adjust proportionally */
+  }
+}
+```
+
+In this updated code, I added a rule `& img` to ensure that the image inside the "card" div takes up 100% of the width, allowing the height to adjust proportionally. This should help maintain the correct aspect ratio during the hover animation. Adjust the width and height percentages as needed to achieve the desired visual effect.
+````
+
+## Notes 3
+
+-   instant animation
+-   image without hover looks normal
+-   image with hover looks narrow
+
+![without hover](./documents/Screenshot%202023-11-16%20185352.png)
+![hover](./documents/Screenshot%202023-11-16%20185426.png)
