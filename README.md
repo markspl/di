@@ -126,9 +126,9 @@ Make sure to adjust the `background-size` and other values according to your des
 
 -   Instant animation
 
-![without hover](./documents/Screenshot%202023-11-16%20182024.png)
-![hover 1](./documents/Screenshot%202023-11-16%20182141.png)
-![hover 2](./documents/Screenshot%202023-11-16%20182211.png)
+![without hover](./documents/Screenshot%202023-11-16%20182024.jpg)
+![hover 1](./documents/Screenshot%202023-11-16%20182141.jpg)
+![hover 2](./documents/Screenshot%202023-11-16%20182211.jpg)
 
 ## Prompt 2
 
@@ -182,8 +182,8 @@ Please give this a try, and it should produce the intended hover effect.
 -   Animation is working
 -   Image is narrow
 
-![without hover](./documents/Screenshot%202023-11-16%20183913.png)
-![hover](./documents/Screenshot%202023-11-16%20183932.png)
+![without hover](./documents/Screenshot%202023-11-16%20183913.jpg)
+![hover](./documents/Screenshot%202023-11-16%20183932.jpg)
 
 ## Prompt 3
 
@@ -243,8 +243,8 @@ In this updated code, I added a rule `& img` to ensure that the image inside the
 -   image without hover looks normal
 -   image with hover looks narrow
 
-![without hover](./documents/Screenshot%202023-11-16%20185352.png)
-![hover](./documents/Screenshot%202023-11-16%20185426.png)
+![without hover](./documents/Screenshot%202023-11-16%20185352.jpg)
+![hover](./documents/Screenshot%202023-11-16%20185426.jpg)
 
 ## Fix
 
@@ -278,3 +278,5 @@ In this updated code, I added a rule `& img` to ensure that the image inside the
     }
 }
 ```
+
+![hover](./documents/Screenshot%202023-11-16%20191006.jpg)
