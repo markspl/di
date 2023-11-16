@@ -99,3 +99,15 @@ I can't create images yet so I'm not able to help you with that.
 -   Regenerating response does not help
 
 ![bard](./documents/Screenshot%202023-11-16%20193020.jpg)
+
+## Prompt 2
+
+```
+I am not asking to generate images. I am looking for how to create animation on my React webpage with CSS animations.
+```
+
+## Result 2
+
+```
+I can't create images yet so I'm not able to help you with that.
+```
