@@ -11,7 +11,7 @@
     .card {
         @extend %roundedBox;
         display: flex;
-        background-size: cover !important;
+        background-size: auto 100% !important; /* Specify initial background size */
         padding: 50px 0 0;
         width: 400px;
         min-height: 500px;
@@ -33,12 +33,7 @@
         }
 
         &:hover {
-            background-size: 110% 110% !important; /* Increase both width and height on hover */
-        }
-
-        & img {
-            width: 100%; /* Ensure image takes up 100% width of its container */
-            height: auto; /* Allow the height to adjust proportionally */
+            background-size: auto 110% !important; /* Increase both width and height on hover */
         }
     }
 }

@@ -245,3 +245,36 @@ In this updated code, I added a rule `& img` to ensure that the image inside the
 
 ![without hover](./documents/Screenshot%202023-11-16%20185352.png)
 ![hover](./documents/Screenshot%202023-11-16%20185426.png)
+
+## Fix
+
+```css
+.card {
+    @extend %roundedBox;
+    display: flex;
+->  background-size: auto 100% !important; /* Specify initial background size */
+    padding: 50px 0 0;
+    width: 400px;
+    min-height: 500px;
+    transition: background-size 0.5s ease-in-out; /* Added transition property */
+
+    &-inner {
+        align-self: flex-end;
+        backdrop-filter: blur(8px);
+        padding: 0 50px;
+    }
+
+    &-title {
+        text-transform: uppercase;
+    }
+
+    &-text,
+    &-title {
+        color: white;
+    }
+
+    &:hover {
+->      background-size: auto 110% !important; /* Increase both width and height on hover */
+    }
+}
+```
