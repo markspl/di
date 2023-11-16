@@ -16,6 +16,10 @@ $imageHeight: 300px;
 
     background: linear-gradient(#e6646446, #9198e545);
 
+    .content {
+        margin-top: 100px;
+    }
+
     .background-img {
         background-size: cover;
         filter: blur(2px);
