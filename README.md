@@ -148,4 +148,51 @@ Remember to ensure that the image does not repeat itself, or else the hover effe
     -   but it transforms the whole element and not the image
     -   end result looks better than what I asked for
 
-![result](./documents/Screenshot%202023-11-22%20211919.jpg)
+![result2](./documents/Screenshot%202023-11-22%20211919.jpg)
+
+## Prompt 3
+
+```
+Now the image looks correct, and hover animation works. But the whole element scales up by 1.1, and not only the background image.
+```
+
+## Response 3
+
+````
+GitHub Copilot: To scale only the background image, you can use a pseudo-element to hold the background image. This way, the hover effect will only apply to the background image and not the entire card. Here's how you can modify your CSS:
+
+```scss
+.card {
+    /* ...existing styles... */
+    position: relative;
+    overflow: hidden;
+    background: none;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    background-size: cover !important;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.card:hover::before {
+    transform: scale(1.1);
+}
+```
+
+In this case, we're creating a pseudo-element `::before` for the `.card` element. This pseudo-element will inherit the background from the `.card` element, and we apply the hover effect to this pseudo-element. The `overflow: hidden;` on the `.card` element will ensure that the scaled background image does not overflow the card.
+````
+
+## Notes 3
+
+-   Image is set as cover and full sized (too big)
+-   Hover animation does not work anymore
+
+![result3](./documents/Screenshot%202023-11-22%20213347.jpg)
