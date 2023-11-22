@@ -196,3 +196,36 @@ In this case, we're creating a pseudo-element `::before` for the `.card` element
 -   Hover animation does not work anymore
 
 ![result3](./documents/Screenshot%202023-11-22%20213347.jpg)
+
+## Fix
+
+```
+.card {
+    @extend %roundedBox;
+    display: flex;
+    background-size: auto 100% !important;
+    transition: background-size 0.5s ease-in-out;
+    padding: 50px 0 0;
+    width: 400px;
+    min-height: 500px;
+
+    &-inner {
+        align-self: flex-end;
+        backdrop-filter: blur(8px);
+        padding: 0 50px;
+    }
+
+    &-title {
+        text-transform: uppercase;
+    }
+
+    &-text,
+    &-title {
+        color: white;
+    }
+}
+
+.card:hover {
+    background-size: auto 110% !important;
+}
+```
