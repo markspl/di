@@ -110,3 +110,42 @@ Remember to ensure that the image does not repeat itself, or else the hover effe
 
 ![UI](./documents/Screenshot%202023-11-22%20150829.jpg)
 ![result](./documents/Screenshot%202023-11-22%20150935.jpg)
+
+## Prompt 2
+
+```
+The hover transition works, but image looks too narrow. element's aspect ratio is not the same as image's.
+```
+
+## Response 2
+
+````
+GitHub Copilot: If the aspect ratio of the image is not the same as the element, you can use `background-size: cover;` to make sure the image covers the entire element while maintaining its aspect ratio. However, this might cut off some parts of the image if the aspect ratios are significantly different.
+
+Here's how you can modify your CSS:
+
+```css
+.card {
+    /* ...existing styles... */
+    background-size: cover !important;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+```
+
+In this case, instead of enlarging the background image, we're enlarging the whole card. The `transform: scale(1.1);` will make the card 10% bigger when hovered over. The transition will still last 0.5 seconds, and the `ease-in-out` value will still give a smooth effect.
+
+Remember to ensure that the image does not repeat itself, or else the hover effect might not work as expected. If the image is repeating, you can add `background-repeat: no-repeat;` to the `.card` class.
+````
+
+## Notes 2
+
+-   uses `Cards.scss` as reference file
+-   hover animation works
+    -   but it transforms the whole element and not the image
+    -   end result looks better than what I asked for
+
+![result](./documents/Screenshot%202023-11-22%20211919.jpg)
