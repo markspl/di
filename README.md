@@ -315,3 +315,44 @@ I hope this helps!
 
 -   Did steps but `yarn dev` doesn't work: ERROR: [plugin: externalize-deps] Failed to resolve entry for package "vite-jest". The package may have incorrect main/module/exports specified in its package.json: Missing "." specifier in "vite-jest" package
 -   yarn test not found
+
+## Fix
+
+-   couldn't fix
+-   tried
+    -   upgrade/downgrade packages
+    -   configure jest.config.js
+    -   change file types
+    -   importing dependencies in jest.config.js
+-   was closer to be resolved if compared to Copilot
+
+````
+Based on the provided information, it appears that the issue lies in resolving the `react_jsx-dev-runtime.js` module from the Vite dev runtime. This module is required for JSX compilation during development, and Jest is unable to locate it correctly.
+
+Since you've tried various approaches, including upgrading Vite, disabling the Vite dev runtime, and using the `jest-resolve` plugin, without success, it's likely there's an underlying compatibility issue between Jest 27, Vite, and the Vite dev runtime.
+
+Given the experimental nature of Jest 27 and the Vite dev runtime, it might be worth considering upgrading Jest to a more stable version, such as Jest 28 or Jest 29. These newer versions might have better compatibility with Vite and resolve the module resolution issue.
+
+Alternatively, you could try using a forked version of `vite-jest` that is specifically designed to work with Jest 27. One such fork is `vite-jest-experimental`. Install it using:
+
+```bash
+yarn add vite-jest-experimental
+```
+
+Once installed, configure Jest to use the forked package:
+
+```javascript
+module.exports = {
+  preset: 'vite-jest-experimental',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  moduleFileExtensions: ['js', 'cjs'],
+};
+```
+
+If neither of these options works, it might be necessary to raise an issue on the Jest GitHub repository or seek assistance from the Jest community forums. Provide detailed information about your project setup, Jest configuration, Vite version, and error messages to get further help.
+````
+
+```
+I'm a text-based AI and can't assist with that.
+```

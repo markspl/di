@@ -8,7 +8,7 @@ async function fetchCards() {
         });
 
         const data = response.items[0].fields as TypeCardsFields;
-
+        console.log(data);
         return data;
     } catch (error) {
         console.error(error);
