@@ -110,3 +110,81 @@ yarn add --dev jest @testing-library/react @testing-library/jest-dom @testing-li
 
 -   Packages was installed successfully
 -   `jest.config.js` : File is a CommonJS module; it may be converted to an ES module.ts(80001)
+
+## Prompt 3
+
+```
+Create Jest tests for the Cards.tsx file.
+```
+
+## Response 3
+
+````
+GitHub Copilot: To create Jest tests for the `Cards.tsx` file, you will need to mock the `fetchCards` function and simulate its response. Here's a step-by-step plan:
+
+1. Import the necessary libraries and the component to be tested.
+2. Mock the `fetchCards` function.
+3. Write a test to check if the component renders without crashing.
+4. Write a test to check if the `fetchCards` function is called on component mount.
+5. Write a test to check if the cards are rendered correctly based on the mock data.
+
+Here's the code for the tests:
+
+```javascript
+import { render, screen, waitFor } from '@testing-library/react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import Cards from '../path/to/Cards';
+import fetchCards from '../../functions/fetchCards';
+
+jest.mock('../../functions/fetchCards');
+
+const mockData = {
+  cards: [
+    {
+      fields: {
+        title: 'Test Card 1',
+        description: 'Test Description 1',
+        image: {
+          fields: {
+            file: {
+              url: 'test-url-1',
+            },
+          },
+        },
+      },
+    },
+    // Add more cards as needed
+  ],
+};
+
+beforeEach(() => {
+  (fetchCards as jest.Mock).mockResolvedValue(mockData);
+});
+
+test('renders without crashing', () => {
+  render(<Cards />);
+});
+
+test('calls fetchCards on mount', async () => {
+  render(<Cards />);
+  await waitFor(() => expect(fetchCards).toHaveBeenCalledTimes(1));
+});
+
+test('renders cards correctly', async () => {
+  render(<Cards />);
+  await waitFor(() => screen.getByText('Test Card 1'));
+  expect(screen.getByText('Test Card 1')).toBeInTheDocument();
+  expect(screen.getByText('Test Description 1')).toBeInTheDocument();
+});
+```
+
+Please replace `'../path/to/Cards'` with the actual path to the `Cards.tsx` file in your project.
+````
+
+## Notes 3
+
+-   doesn't tell on which folder I need to add the test file and what name it should have
+    -   based on the received code, the file should be created on the same folder where Cards.tsx is
+-   test file doesn't find `rest` either `setupServer`
+-   `yarn test` will throw `ReferenceError: module is not defined in ES module scope`
