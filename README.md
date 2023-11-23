@@ -104,3 +104,144 @@ Now, Jest tests will be automatically run when you start Vite in development mod
 -   Cannot find module 'vite-jest' or its corresponding type declarations.ts(2307)
 -   does not allow run `yarn dev` : ERROR: [plugin: externalize-deps] Failed to resolve entry for package "vite-jest". The package may have incorrect main/module/exports specified in its package.json: Missing "." specifier in "vite-jest"
     package
+
+## Prompt 2
+
+````
+Generate test for Cards.tsx file:
+```
+import { useEffect, useState } from 'react';
+import fetchCards from '../../functions/fetchCards';
+import { TypeCardsFields } from '../../contentful';
+
+import './Cards.scss';
+
+function Cards() {
+    const [data, setData] = useState<TypeCardsFields>();
+
+    const fetchData = () => {
+        fetchCards()
+            .then((result) => {
+                const data = result!;
+                setData(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const cards = data?.cards;
+
+    return (
+        <div className="cards">
+            {cards?.map((card) => {
+                return (
+                    <div
+                        className="card"
+                        key={card.fields.title}
+                        style={{
+                            background: `url(${card.fields.image?.fields.file.url}) no-repeat center`,
+                        }}
+                    >
+                        {card.fields.title && card.fields.description && (
+                            <div className="card-inner">
+                                <div className="card-title">
+                                    {card.fields.showTitle && (
+                                        <h1>{card.fields.title}</h1>
+                                    )}
+                                </div>
+                                <div className="card-text">
+                                    <p>{card.fields.description}</p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
+    );
+}
+
+export default Cards;
+```
+````
+
+## Response
+
+-   offers three different drafts
+
+````
+Sure, here is the test file for the `Cards.tsx` file:
+
+```tsx
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Cards from './Cards';
+import { TypeCardsFields } from '../../contentful';
+
+jest.mock('../../functions/fetchCards');
+
+describe('Cards component', () => {
+  it('should render the cards', async () => {
+    const mockCardsData: TypeCardsFields = {
+      cards: [
+        {
+          fields: {
+            title: 'Card 1',
+            description: 'This is the first card.',
+            image: {
+              fields: {
+                file: {
+                  url: 'https://example.com/image1.jpg',
+                },
+              },
+            },
+          },
+        },
+        {
+          fields: {
+            title: 'Card 2',
+            description: 'This is the second card.',
+            image: {
+              fields: {
+                file: {
+                  url: 'https://example.com/image2.jpg',
+                },
+              },
+            },
+          },
+        },
+      ],
+    };
+
+    fetchCards.mockResolvedValue(mockCardsData);
+
+    render(<Cards />);
+
+    const cards = screen.getAllByRole('card');
+    expect(cards).toHaveLength(2);
+
+    expect(cards[0]).toHaveStyle({
+      backgroundImage: `url(https://example.com/image1.jpg) no-repeat center`,
+    });
+
+    expect(cards[1]).toHaveStyle({
+      backgroundImage: `url(https://example.com/image2.jpg) no-repeat center`,
+    });
+  });
+});
+```
+
+This test file will first mock the `fetchCards` function so that it always returns a specific set of card data. Then, it will render the `Cards` component and use the testing library to assert that the cards are rendered correctly.
+````
+
+## Notes 2
+
+-   `yarn test` does not work (Command "test" not found)
+-   eslint errors
+-   Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.ts(2582)
+-   Cannot find name 'expect'.ts(2304)
