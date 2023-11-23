@@ -245,3 +245,73 @@ This test file will first mock the `fetchCards` function so that it always retur
 -   eslint errors
 -   Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.ts(2582)
 -   Cannot find name 'expect'.ts(2304)
+
+## Prompt 3
+
+```
+After testing, I found few problems which are listed belown:
+- jest.config.js file: Parsing error: ESLint was configured to run on `<tsconfigRootDir>/jest.config.js` using `parserOptions.project`
+- Cards.test.tsx file: 'React' is defined but never used.
+- Cards.test.tsx file: Cannot find name 'jest'
+- Cards.test.tsx file: Cannot find name 'describe'. Do you need to install type definitions for a test runner?
+- Cards.test.tsx file: Cannot find name 'it'. Do you need to install type definitions for a test runner?
+- Cards.test.tsx file: sync arrow function has no 'await' expression.
+- Cards.test.tsx file: Type '{ url: string; }' is missing the following properties from type '{ url: string; details: { size: number; image?: { width: number; height: number; } | undefined; }; fileName: string; contentType: string; }': details, fileName, contentType
+- Cards.test.tsx file: Unsafe member access .mockResolvedValue on an `any` value.
+- Cards.test.tsx file: Unsafe member access .toHaveLength on an `any` value.
+- Cards.test.tsx file: Unsafe member access .toHaveStyle on an `any` value.
+- vite.config.ts file: This rule requires the `strictNullChecks` compiler option to be turned on to function correctly.
+- vite.config.ts file: Cannot find module 'vite-jest' or its corresponding type declarations.
+- vite.config.ts file: Unsafe assignment of type any[] to a variable of type PluginOption[].
+```
+
+## Response 3
+
+````
+Sure, I can help you with these problems.
+
+**jest.config.js file:**
+
+The error message is telling you that ESLint is configured to run on the `jest.config.js` file using the `parserOptions.project` option. This means that ESLint is expecting to find a `tsconfig.json` file in the root directory of the project. If you have not yet created a `tsconfig.json` file, you can do so by running the following command:
+
+```bash
+npx tsc --init
+```
+
+This will create a basic `tsconfig.json` file that you can then customize as needed.
+
+**Cards.test.tsx file:**
+
+The errors in the `Cards.test.tsx` file are all related to the fact that you have not installed the type definitions for Jest. To install the type definitions for Jest, you can run the following command:
+
+```bash
+yarn add @types/jest
+```
+
+This will install the `@types/jest` package, which will provide the type definitions for Jest to the TypeScript compiler.
+
+**vite.config.ts file:**
+
+The errors in the `vite.config.ts` file are related to the fact that you have not installed the `vite-jest` plugin. To install the `vite-jest` plugin, you can run the following command:
+
+```bash
+yarn add vite-jest
+```
+
+This will install the `vite-jest` package, which will provide the plugin for integrating Jest with Vite.
+
+Once you have installed all of the necessary dependencies, you should be able to run your tests without any errors.
+
+Here is a summary of the steps to fix the problems you listed:
+
+1. Create a `tsconfig.json` file in the root directory of the project.
+2. Install the `@types/jest` package.
+3. Install the `vite-jest` plugin.
+
+I hope this helps!
+````
+
+## Notes 3
+
+-   Did steps but `yarn dev` doesn't work: ERROR: [plugin: externalize-deps] Failed to resolve entry for package "vite-jest". The package may have incorrect main/module/exports specified in its package.json: Missing "." specifier in "vite-jest" package
+-   yarn test not found
