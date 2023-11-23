@@ -10,11 +10,14 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@testing-library/react": "^14.1.2",
         "contentful-cli": "^3.1.4",
         "eslint-plugin-react": "^7.33.2",
+        "jest": "^29.7.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "sass": "^1.69.5"
+        "sass": "^1.69.5",
+        "vite-jest": "^0.1.4"
     },
     "devDependencies": {
         "@types/react": "^18.2.15",
