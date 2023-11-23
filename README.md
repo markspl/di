@@ -188,3 +188,13 @@ Please replace `'../path/to/Cards'` with the actual path to the `Cards.tsx` file
     -   based on the received code, the file should be created on the same folder where Cards.tsx is
 -   test file doesn't find `rest` either `setupServer`
 -   `yarn test` will throw `ReferenceError: module is not defined in ES module scope`
+
+## Fix
+
+-   couldn't get tests to work
+-   tried
+    -   install different packages (@types/testing-library\_\_jest-dom, ...)
+    -   edit or create tsconfig.json, jest.config.js, jest.setup.ts
+    -   different node versions
+    -   importing packages different ways (import, require)
+    -   changing file types

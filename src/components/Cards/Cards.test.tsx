@@ -1,8 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import Cards from '../path/to/Cards';
+import '@testing-library/jest-dom';
+import Cards from './Cards';
 import fetchCards from '../../functions/fetchCards';
+
+import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('../../functions/fetchCards');
 
