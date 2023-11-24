@@ -25,7 +25,7 @@ function Cards() {
     const cards = data?.cards;
 
     return (
-        <div className="cards">
+        <div className="cards" data-testid="cards">
             {cards?.map((card) => {
                 return (
                     <div
