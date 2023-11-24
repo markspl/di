@@ -232,7 +232,7 @@ After addressing these issues, try running your tests again using `yarn test`. A
 
 ````
 Yarn test gives two errors:
-- Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\Users\\markus.palomaki\\Documents\\dippa\\di"} was found.
+- Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\Users\\(...)\\di"} was found.
   This is probably a typing mistake. Fixing it will remove this message.
 - Validation Error: Preset ts-jest/presets/js-with-babel not found.
 
@@ -327,3 +327,29 @@ After making these changes, try running your tests again using `yarn test`. Adju
     -   Validation Warning: Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\(...)\\di"} was found. This is probably a typing mistake. Fixing it will remove this message.
     -   Validation Error: Test environment jest-environment-jsdom cannot be found. Make sure the testEnvironment configuration option points to an existing node module.
     -   As of Jest 28 "jest-environment-jsdom" is no longer shipped by default, make sure to install it separately.
+
+## Fix
+
+-   ignore '_.test._' files on .eslintrc.cjs
+-   remove extra type assertion from the test file
+-   chatgpt suggests to clean (remove dependencies and lock file) and try again `yarn test`
+    -   if still issues, try to install `yarn add --dev jest ts-jest jest-environment-jsdom`
+
+after reinstalling dependencies:
+
+-   Jest encountered an unexpected token
+
+    ```
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+    ```
+
+-   installed @babel/preset-react
+-   debugging instructions (npx jest --runInBand)
+-   install missing dependencies for @babel what error messages suggested
+-   downgrade contentful to 9.0.0
+-   chatgpt suggests me to switch npm registry
+-   couldn't fix the issue

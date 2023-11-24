@@ -2,9 +2,13 @@ module.exports = {
     preset: 'ts-jest/presets/js-with-babel',
     testEnvironment: 'jsdom',
     transform: {
-        '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.(js|jsx)?$': 'babel-jest',
+        transform_regex: [
+            'ts-jest',
+            {
+                tsconfig: __dirname + '/tsconfig.json',
+            },
+        ],
     },
-    parserOptions: {
-        tsconfigRootDir: __dirname,
-    },
+    extensionsToTreatAsEsm: ['.jsx'],
 };
