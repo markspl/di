@@ -227,3 +227,103 @@ After addressing these issues, try running your tests again using `yarn test`. A
 -   'React' is defined but never used.
 -   expect is not defined
 -   Unsafe member access .toBeInTheDocument on an `any` value.
+
+## Prompt 3
+
+````
+Yarn test gives two errors:
+- Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\Users\\markus.palomaki\\Documents\\dippa\\di"} was found.
+  This is probably a typing mistake. Fixing it will remove this message.
+- Validation Error: Preset ts-jest/presets/js-with-babel not found.
+
+Other issues:
+The test file:
+- 'React' is defined but never used.eslint@typescript-eslint/no-unused-vars
+- This assertion is unnecessary since it does not change the type of the expression.eslint@typescript-eslint/no-unnecessary-type-assertion
+- 'expect' is not defined.eslintno-undef
+- Unsafe member access .toBeInTheDocument on an `any` value.eslint@typescript-eslint/no-unsafe-member-access
+
+Jest.config.cjs:
+```
+Parsing error: ESLint was configured to run on `<tsconfigRootDir>/jest.config.cjs` using `parserOptions.project`:
+- <tsconfigRootDir>/tsconfig.json
+- <tsconfigRootDir>/tsconfig.node.json
+```
+
+jest.config.cjs file:
+```
+module.exports = {
+    preset: 'ts-jest/presets/js-with-babel',
+    testEnvironment: 'jsdom',
+    transform: {
+        '^.+\\.jsx?$': 'babel-jest',
+    },
+    parserOptions: {
+        tsconfigRootDir: __dirname,
+    },
+};
+```
+````
+
+## Result 3
+
+````
+It seems like there are a few issues to address. Let's go through them step by step:
+
+### 1. Jest Configuration Error:
+
+The error "Unknown option 'parserOptions'" suggests that Jest does not recognize the `parserOptions` in your configuration. This might be due to an outdated version of Jest or ts-jest.
+
+Update your Jest and ts-jest packages to the latest versions:
+
+```bash
+yarn add --dev jest ts-jest
+```
+
+### 2. ESLint Issues in Test File:
+
+#### 'React' is defined but never used:
+This is a common ESLint warning. It's safe to ignore if you're not using `React` explicitly in your test file. If you are using it, make sure it's imported where needed.
+
+#### This assertion is unnecessary since it does not change the type of the expression:
+Remove unnecessary type assertions. In your test file, make sure that type assertions are only used when necessary. For example, if you are asserting types for the `screen.getByText` result, ensure that it's required.
+
+#### 'expect' is not defined:
+Make sure you have imported `expect` from Jest at the beginning of your test file:
+
+```javascript
+import { expect } from '@jest/globals';
+```
+
+#### Unsafe member access .toBeInTheDocument on an `any` value:
+If you are using `as` for type assertion, ensure that you are asserting to the correct type. If you're confident in the type, you can add a comment to satisfy ESLint:
+
+```javascript
+const buttonElement = screen.getByText(/click me/i) as HTMLElement; // eslint-disable-line @typescript-eslint/no-unsafe-member-access
+```
+
+### 3. Jest Configuration in `jest.config.cjs`:
+
+The error "ESLint was configured to run on `<tsconfigRootDir>/jest.config.cjs`" indicates a problem with the ESLint configuration. It seems like ESLint is configured to run on your Jest config file. Update your ESLint configuration to exclude Jest config files.
+
+Add the following to your `.eslintrc.js`:
+
+```javascript
+module.exports = {
+  // ... other configurations
+  ignorePatterns: ['jest.config.cjs'],
+};
+```
+
+This will instruct ESLint to ignore the Jest configuration file.
+
+After making these changes, try running your tests again using `yarn test`. Adjust the solutions based on your project's specific setup and requirements.
+````
+
+## Notes 3
+
+-   thinks that "unknown options 'parserOptions'" is jest issue but it's eslint issue
+-   `yarn test` gives errors:
+    -   Validation Warning: Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\(...)\\di"} was found. This is probably a typing mistake. Fixing it will remove this message.
+    -   Validation Error: Test environment jest-environment-jsdom cannot be found. Make sure the testEnvironment configuration option points to an existing node module.
+    -   As of Jest 28 "jest-environment-jsdom" is no longer shipped by default, make sure to install it separately.
