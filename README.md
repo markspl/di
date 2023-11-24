@@ -128,3 +128,102 @@ This should help you set up a basic testing environment for your React project u
 -   list of optional dependencies what can be installed
 -   `yarn test` wont run because ReferenceError: module is not defined in ES module scope
 -   test file has eslint errors
+
+## Prompt 2
+
+````
+I got few issues:
+
+The test file:
+- Unsafe call of an `any` typed value.eslint@typescript-eslint/no-unsafe-call
+- 'test' is not defined.eslintno-undef
+
+jest.config.js file:
+```
+Parsing error: ESLint was configured to run on `<tsconfigRootDir>/jest.config.js` using `parserOptions.project`:
+- <tsconfigRootDir>/tsconfig.json
+- <tsconfigRootDir>/tsconfig.node.json
+```
+
+And when I try to run `yarn run` command, I get error:
+```
+ReferenceError: module is not defined in ES module scope
+This file is being treated as an ES module because it has a '.js' file extension and 'C:\(...)\di\package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    at file:///C:/(...)/di/jest.config.js:1:1
+```
+````
+
+## Result 2
+
+````
+Let's address each of the issues step by step:
+
+### 1. ESLint Issues in Test File:
+
+#### Unsafe call of an `any` typed value:
+This issue is related to TypeScript and ESLint complaining about unsafe use of `any`. To resolve this, you can add a type assertion to inform TypeScript that you are intentionally using `any`. For example:
+
+```javascript
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Button from '../components/Button';
+
+test('renders button text', () => {
+  render(<Button label="Click me" />);
+  const buttonElement = screen.getByText(/click me/i) as HTMLElement; // Add type assertion
+  expect(buttonElement).toBeInTheDocument();
+});
+```
+
+#### 'test' is not defined:
+Make sure you have properly imported `test` from `@testing-library/react`. Add the following import statement at the beginning of your test file:
+
+```javascript
+import { test } from '@jest/globals';
+```
+
+### 2. Jest Configuration Error:
+
+The error you're encountering indicates a parsing error related to ESLint configuration. It seems like Jest is trying to use ESLint on the `jest.config.js` file, and there might be an issue with the ESLint and TypeScript configuration.
+
+You can try adding the following to your `jest.config.js`:
+
+```javascript
+module.exports = {
+  // ... existing config
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+  },
+  // ... other configurations
+};
+```
+
+Make sure to replace `<tsconfigRootDir>` with the actual path if it appears in your error message.
+
+### 3. ES Module Error:
+
+The error "ReferenceError: module is not defined in ES module scope" suggests that Jest is trying to run your configuration file as an ES module. To resolve this, you can either change the file extension of `jest.config.js` to `.cjs` or add `"type": "commonjs"` to your `package.json`.
+
+#### Option 1: Change File Extension
+Rename `jest.config.js` to `jest.config.cjs`.
+
+#### Option 2: Update `package.json`
+Add the following to your `package.json`:
+
+```json
+"type": "commonjs",
+```
+
+After addressing these issues, try running your tests again using `yarn test`. Adjust the solutions based on your project's specific setup and requirements.
+````
+
+## Notes 2
+
+-   1. adding a type assertion gives feedback "This assertion is unnecessary since it does not change the type of the expression.eslint@typescript-eslint/no-unnecessary-type-assertion"
+-   after changing jest.config.js to .cjs and running `yarn test`
+    -   "Unknown option "parserOptions" with value {"tsconfigRootDir": "C:\\(...)\\di"} was found.  
+        This is probably a typing mistake. Fixing it will remove this message."
+    -   Validation error: Preset ts-jest/presets/js-with-babel not found
+-   'React' is defined but never used.
+-   expect is not defined
+-   Unsafe member access .toBeInTheDocument on an `any` value.

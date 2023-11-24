@@ -4,4 +4,7 @@ module.exports = {
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
     },
+    parserOptions: {
+        tsconfigRootDir: __dirname,
+    },
 };
