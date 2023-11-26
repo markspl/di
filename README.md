@@ -1,3 +1,8 @@
+markspl/di
+
+<details>
+<summary>template</summary>
+
 # xx/branch-name
 
 ## tool-name
@@ -30,3 +35,5 @@ response
 ## Notes
 
 -   extra information
+
+</details>
